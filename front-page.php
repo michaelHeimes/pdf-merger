@@ -49,26 +49,25 @@ get_header(); ?>
 							<form>
 								
 								<div class="choice all-cats">
-									<div class="grid-x align-middle">
-										<input type="checkbox" id="category1" name="Category 1" value="category1">
-										<label for="category1">Category 1</label>
-									</div>
+									<input type="checkbox" id="category1" name="Category 1" value="category1">
+									<label for="category1">Introduction</label>
 								</div>
 								
 								<div class="choice">
-									<div class="grid-x align-middle">
-										<input type="checkbox" id="cat1sec1" name="Category 1" value="category1">
-										<label for="cat1sec1">Cat 1 Section 1</label>
-									</div>
+									<input type="checkbox" id="cat1sec1" name="Category 1" value="2">
+									<label for="cat1sec1">About Spirit Aerosystems</label>
 								</div>
 								
 								<div class="choice">
-									<div class="grid-x align-middle">
-										<input type="checkbox" id="category1" name="Category 1" value="category1">
-										<label for="cat1sec2">Cat 1 Section 2</label>
-									</div>
+									<input type="checkbox" id="category1" name="Category 1" value="3">
+									<label for="cat1sec2">Message from Our President and CEP</label>
 								</div>	
-														
+
+								<div class="choice">
+									<input type="checkbox" id="category1" name="Category 1" value="4">
+									<label for="cat1sec2">2020 Impact Highlights</label>
+								</div>	
+																						
 							</form>						
 						    
 					    </div>	

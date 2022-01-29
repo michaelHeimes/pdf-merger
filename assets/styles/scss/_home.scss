@@ -3,14 +3,25 @@
 		[type=checkbox],
 		[type=file],
 		[type=radio] {
-			margin: 0 1rem 0 0;
+			margin: 0 .5rem 0 0;
 			color: $white;
 		}
 	}
 	
 	.choice {
+		display: flex;
+		flex-wrap: wrap;
+		
+		[type=checkbox] {
+			margin-top: 5px;
+			width: auto;
+			flex: 0 0 auto;
+		}
 		label {
+			width: auto;
+			flex: 1 1 0px;
 			font-size: rem-calc(20);
+			line-height: 1.2;
 		}
 		
 	&:not(.all) {
