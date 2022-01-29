@@ -1,0 +1,40 @@
+.home {
+	form {
+		[type=checkbox],
+		[type=file],
+		[type=radio] {
+			margin: 0 1rem 0 0;
+			color: $white;
+		}
+	}
+	
+	.choice {
+		label {
+			font-size: rem-calc(20);
+		}
+		
+	&:not(.all) {
+		padding: .5rem 1rem;
+	}
+	
+	&.all-cats {
+		background-color: #f15a24;
+		label {
+			color: $white;
+
+		}		
+	}
+		
+	}
+	
+	button {
+		cursor: pointer;
+		font-size: rem-calc(28);
+		font-weight: 600;
+		padding: 1rem 2rem;
+		background-color: $black;
+		color: $white;
+		border-radius: 30px;
+	}
+	
+}

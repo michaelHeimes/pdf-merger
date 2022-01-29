@@ -32,7 +32,7 @@ jQuery( document ).ready(function($) {
 		});
 
 	}
-			
+		
 	_app.init = function() {
 		
 		// Standard Functions
