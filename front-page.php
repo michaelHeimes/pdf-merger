@@ -10,27 +10,29 @@ get_header(); ?>
 	<div class="content">
 	
 		<div class="inner-content">
+<!--
 			<input type="file" id="file" multiple />
 			<input type="button" value="Merge"/>
+-->
 	
 		    <main class="main" role="main">
-			    <div class="grid-container">
-				    <div class="grid-x grid-padding-x">
-					    
-					    <div class="cell">
-						    <header class="article-header">
-								<h1 class="page-title"><?php the_title(); ?></h1>
-							</header> <!-- end article header -->
-						</div>
-				    
-					    <div class="cell small-12 medium-6 large-4">
-				
-						    <section class="entry-content" itemprop="text">
-							    <?php the_content(); ?>
-							</section> <!-- end article section -->								
+			    <form id="report-generator">
+				    <div class="grid-container">
+					    <div class="grid-x grid-padding-x">
 						    
-							<form>
-								<div class="choice all">
+						    <div class="cell">
+							    <header class="article-header">
+									<h1 class="page-title"><?php the_title(); ?></h1>
+								</header> <!-- end article header -->
+							</div>
+					    
+						    <section class="cell small-12 medium-6 large-4">
+					
+							    <div class="entry-content" itemprop="text">
+								    <?php the_content(); ?>
+								</div> <!-- end article section -->								
+							    
+								<div class="choice all-choices">
 									<div class="grid-x align-middle">
 										<div class="cell shrink">
 											<input type="checkbox" id="addAll" name="Add All" value="addAll">
@@ -40,47 +42,47 @@ get_header(); ?>
 										</div>
 									</div>
 								</div>
-							</form>							
+							    
+						    </section>		
 						    
-					    </div>		
-					    
-					    <div class="cell small-12 medium-6 large-4">
-						    
-							<form>
-								
+						    <section class="choice-block introduction cell small-12 medium-6 large-4">
+	
 								<div class="choice all-cats">
-									<input type="checkbox" id="category1" name="Category 1" value="category1">
-									<label for="category1">Introduction</label>
+									<input type="checkbox" id="cat1-all" name="Introduction" value="all-introduction">
+									<label for="cat1-all">Introduction</label>
 								</div>
 								
-								<div class="choice">
-									<input type="checkbox" id="cat1sec1" name="Category 1" value="2">
-									<label for="cat1sec1">About Spirit Aerosystems</label>
+								<div class="options">
+									
+									<div class="choice">
+										<input type="checkbox" id="cat1sec1" name="Introduction: About Spirit AeroSystems" value="cat1sec1">
+										<label for="cat1sec1">About Spirit Aerosystems</label>
+									</div>
+									
+									<div class="choice">
+										<input type="checkbox" id="cat1sec2" name="Message from Our President and CEP" value="cat1sec2">
+										<label for="cat1sec2">Message from Our President and CEP</label>
+									</div>	
+		
+									<div class="choice">
+										<input type="checkbox" id="cat1sec3" name="2020 Impact Highlights">
+										<label for="cat1sec2">2020 Impact Highlights</label>
+									</div>	
+									
 								</div>
-								
-								<div class="choice">
-									<input type="checkbox" id="category1" name="Category 1" value="3">
-									<label for="cat1sec2">Message from Our President and CEP</label>
-								</div>	
-
-								<div class="choice">
-									<input type="checkbox" id="category1" name="Category 1" value="4">
-									<label for="cat1sec2">2020 Impact Highlights</label>
-								</div>	
-																						
-							</form>						
+	
+						    </section>	
 						    
-					    </div>	
-					    
-					    <div class="cell text-center">
-						    <div class="grid-x grid-padding-x align-center align-middle">
-								<div class="cell shrink"><button id="create-download" type="submit">Create &amp; Download</button></div>
-								<div class="cell shrink"><button id="reset-options" type="reset">Clear Form</button></div>
-						    </div>
-					    </div>	
-					    
-				    </div>
-			    </div>	
+						    <div class="cell text-center">
+							    <div class="grid-x grid-padding-x align-center align-middle">
+									<div class="cell shrink"><button id="create-download" type="submit">Create &amp; Download</button></div>
+									<div class="cell shrink"><button id="reset-options" type="reset">Clear Form</button></div>
+							    </div>
+						    </div>	
+						    
+					    </div>
+				    </div>	
+			    </form>
 			    				
 			</main> <!-- end #main -->
 
@@ -98,4 +100,41 @@ get_header(); ?>
 		
 		const pdf1Bytes = await fetch(pdf1Url).then(res => res.arrayBuffer())
 		const pdf2Bytes = await fetch(pdf2Url).then(res => res.arrayBuffer())
+-->
+
+
+<!--
+Select All In Each Category
+
+Introduction	
+-->
+<!--
+document.getElementById('cat1-all').onclick = function() {
+	console.log("loaded");
+    const childCheckboxes = document.querySelectorAll('.introduction .options input[type="checkbox"]');
+    for (var childCheckbox of childCheckboxes) {
+        childCheckbox.checked = this.checked;
+    }
+}
+-->
+
+<!--
+		if (document.querySelectorAll('input[type="checkbox"]:checked').length ) {
+			
+	        if( document.getElementById('cat1sec1').checked ) {
+		        const [cat1Sec1Page1] = await pdfDoc.copyPages(sourcePdfDoc, [2]);
+		        pdfDoc.addPage(cat1Sec1Page1);	        
+	        }
+	        if( document.getElementById('cat1sec2').checked ) {
+		        const [cat1Sec1Page2] = await pdfDoc.copyPages(sourcePdfDoc, [3]);
+		        pdfDoc.addPage(cat1Sec1Page2);	        
+	        }        
+	        if( document.getElementById('cat1sec3').checked ) {
+		        const [cat1Sec1Page3] = await pdfDoc.copyPages(sourcePdfDoc, [4]);
+		        pdfDoc.addPage(cat1Sec1Page3);
+	        }
+
+		} else {
+			alert("Please check chapters or sections before creating your report.");
+		}
 -->
