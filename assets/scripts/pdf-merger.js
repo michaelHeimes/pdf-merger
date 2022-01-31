@@ -1,6 +1,11 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function() {
 		
 	const { PDFDocument, StandardFonts, rgb } = PDFLib;  
+	let choices = document.querySelectorAll('input[type="checkbox"]');
+	
+	function showDownLoadCard() {
+		
+	}
 	
 	async function merge() {
 		
@@ -58,8 +63,29 @@ document.addEventListener('DOMContentLoaded', function () {
 		        let [page1] = await pdfDoc.copyPages(sourcePdfDoc, [10]);
 		        pdfDoc.addPage(page1);
 	        }
+	        
+	        let fadeInLoader = function() {
+		        let loader = document.getElementById('loader');
+		        loader.classList.add('show');		        
+	        }
+	        fadeInLoader();
 	        	        
 			const pdfBytes = await pdfDoc.save();
+			
+	        let downloadingText = function(e) {
+		        let dlText = document.getElementById('loading-text');
+		        dlText.innerHTML = "downloading your report...";		        
+	        }
+	        downloadingText();
+			
+			let fadeOutLoader = async function(e) {
+				await pdfDoc.save();
+		        let loader = document.getElementById('loader');
+		        loader.classList.remove('show');		        
+	        }
+	        setTimeout(function(e) {
+	        	fadeOutLoader();
+	        }, 1000);
 			
 			download(pdfBytes, "merged-pdf.pdf", "application/pdf");
 	
@@ -68,37 +94,38 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	
 	};
-
-	// Select All Buttons
-/*
-	var doc = document.getElementById("test");
-	var notes = null;
-	for (var i = 0; i < doc.childNodes.length; i++) {
-	    if (doc.childNodes[i].className == "4") {
-	      notes = doc.childNodes[i];
-	      break;
-	    }        
-	}
-*/
-
 	
-	// Introduction
-	document.getElementById('cat1-all').onclick = function() {
-		console.log("loaded");
-	    const childCheckboxes = document.querySelectorAll('.introduction .options input[type="checkbox"]');
-	    for (var childCheckbox of childCheckboxes) {
-	        childCheckbox.checked = this.checked;
-	    }
+	
+	// Select Entire Report
+	let wholeReportBtn = document.getElementById('addAll');
+	wholeReportBtn.onclick = function() {
+		for (let choice of choices) {
+			choice.checked = this.checked;
+		}
 	}
+	
+	// Clear Form
+	let clearBtn = document.getElementById('clear-options');
+		for (let choice of choices) {
+			choice.checked != this.checked;
+		}
 
-        
-   	
+	// Select All Buttons for each choice block
+	let allBtns = document.querySelectorAll('.choice-block .all-sections input');
+	for (let i = 0; i < allBtns.length; i++) {
+		allBtns[i].onclick = function() {
+			let choiceBlock = this.closest('.choice-block');
+			let childCheckboxes = choiceBlock.querySelectorAll('input[type="checkbox"]');
+			for (let childCheckbox of childCheckboxes) {
+				childCheckbox.checked = this.checked;
+	    	}
+		}
+	}   	
 	
 // 	Create and Download
-	
 	document.getElementById('create-download').onclick = function(e) {
 		e.preventDefault();
 		merge();
 	}
 	
-}, false);
+});

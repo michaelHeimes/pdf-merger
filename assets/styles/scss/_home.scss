@@ -1,10 +1,18 @@
 .home {
+	
+	main {
+		padding-top: 5rem;
+		h1 {
+			padding-bottom: 2rem;
+		}
+	}
+	
 	form {
 		[type=checkbox],
 		[type=file],
 		[type=radio] {
 			margin: 0 .5rem 0 0;
-			color: $white;
+			color: #fff;
 		}
 	}
 	
@@ -31,7 +39,7 @@
 	&.all-sections {
 		background-color: #f15a24;
 		label {
-			color: $white;
+			color: #fff;
 
 		}		
 	}
@@ -50,6 +58,50 @@
 		background-color: $black;
 		color: $white;
 		border-radius: 30px;
+	}
+	
+	#loader {
+		visibility: hidden;
+		opacity: 0;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0,0.3);
+		transition: opacity .4s ease;
+		
+		.loader-card {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;		
+			margin: auto;
+			padding: 2rem;
+				
+			.inner {
+				height: 200px;
+				width: 250px;
+				background-color: #fff;
+				border-radius: 15px;
+			}
+		}
+		
+		.loading-gif {
+			img {
+				width: 100px;
+				height: 100px;
+				display: block;
+				margin: auto;
+			}
+		}
+		
+	&.show {
+		visibility: visible;
+		opacity: 1;
+	}
+		
 	}
 	
 }

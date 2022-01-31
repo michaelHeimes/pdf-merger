@@ -33,14 +33,8 @@ get_header(); ?>
 								</div> <!-- end article section -->								
 							    
 								<div class="choice all-choices">
-									<div class="grid-x align-middle">
-										<div class="cell shrink">
-											<input type="checkbox" id="addAll" name="Add All" value="addAll">
-										</div>
-										<div class="cell auto">
-											<label for="all">Add All PDFs to Report</label>
-										</div>
-									</div>
+									<input type="checkbox" id="addAll" name="Add All" value="addAll">
+									<label for="addAll">Add All PDFs to Report</label>
 								</div>
 							    
 						    </section>		
@@ -114,7 +108,7 @@ get_header(); ?>
 						    <div class="form-buttons cell text-center">
 							    <div class="grid-x grid-padding-x align-center align-middle">
 									<div class="cell shrink"><button id="create-download" type="submit">Create &amp; Download</button></div>
-									<div class="cell shrink"><button id="reset-options" type="reset">Clear Form</button></div>
+									<div class="cell shrink"><button id="clear-options" type="reset">Clear Form</button></div>
 							    </div>
 						    </div>	
 						    
@@ -129,50 +123,24 @@ get_header(); ?>
 		</div> <!-- end #inner-content -->
 
 	</div> <!-- end #content -->
+	
+	<div id="loader">
+	    <div class="grid-container">
+		    <div class="grid-x grid-padding-x">
+			    <div class="cell">		
+					<div class="loader-card grid-x align-center align-middle">
+						<div class="inner grid-x align-center align-middle">
+							<div class="inital">
+								<div class="loading-gif">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/gifs/loading-buffering.gif"/>
+								</div>
+								<div id="loading-text" class="loading-text text-center">creating your report...</div>
+							</div>
+						</div>
+					</div>
+			    </div>
+		    </div>
+	    </div>
+	</div>
 
 <?php get_footer(); ?>
-<!--
-
-		const pdf1Url = '/wp-content/themes/pdf-merger/assets/pdfs/test-pdf-page-1.pdf'
-		const pdf2Url = '/wp-content/themes/pdf-merger/assets/pdfs/test-pdf-page-2.pdf'
-		
-		const pdf1Bytes = await fetch(pdf1Url).then(res => res.arrayBuffer())
-		const pdf2Bytes = await fetch(pdf2Url).then(res => res.arrayBuffer())
--->
-
-
-<!--
-Select All In Each Category
-
-Introduction	
--->
-<!--
-document.getElementById('cat1-all').onclick = function() {
-	console.log("loaded");
-    const childCheckboxes = document.querySelectorAll('.introduction .options input[type="checkbox"]');
-    for (var childCheckbox of childCheckboxes) {
-        childCheckbox.checked = this.checked;
-    }
-}
--->
-
-<!--
-		if (document.querySelectorAll('input[type="checkbox"]:checked').length ) {
-			
-	        if( document.getElementById('cat1sec1').checked ) {
-		        const [cat1Sec1Page1] = await pdfDoc.copyPages(sourcePdfDoc, [2]);
-		        pdfDoc.addPage(cat1Sec1Page1);	        
-	        }
-	        if( document.getElementById('cat1sec2').checked ) {
-		        const [cat1Sec1Page2] = await pdfDoc.copyPages(sourcePdfDoc, [3]);
-		        pdfDoc.addPage(cat1Sec1Page2);	        
-	        }        
-	        if( document.getElementById('cat1sec3').checked ) {
-		        const [cat1Sec1Page3] = await pdfDoc.copyPages(sourcePdfDoc, [4]);
-		        pdfDoc.addPage(cat1Sec1Page3);
-	        }
-
-		} else {
-			alert("Please check chapters or sections before creating your report.");
-		}
--->
