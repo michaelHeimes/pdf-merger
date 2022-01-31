@@ -1,14 +1,6 @@
-jQuery( document ).ready(function($) {
+document.addEventListener('DOMContentLoaded', function () {
 		
 	const { PDFDocument, StandardFonts, rgb } = PDFLib;  
-
-	document.getElementById('cat1-all').onclick = function() {
-		console.log("loaded");
-	    const childCheckboxes = document.querySelectorAll('.introduction .options input[type="checkbox"]');
-	    for (var childCheckbox of childCheckboxes) {
-	        childCheckbox.checked = this.checked;
-	    }
-	}
 	
 	async function merge() {
 		
@@ -31,18 +23,42 @@ jQuery( document ).ready(function($) {
 		if (document.querySelectorAll('input[type="checkbox"]:checked').length ) {
 			
 	        if( document.getElementById('cat1sec1').checked ) {
-		        const [cat1Sec1Page1] = await pdfDoc.copyPages(sourcePdfDoc, [2]);
-		        pdfDoc.addPage(cat1Sec1Page1);	        
+		        let [page1] = await pdfDoc.copyPages(sourcePdfDoc, [2]);
+		        pdfDoc.addPage(page1);	        
 	        }
 	        if( document.getElementById('cat1sec2').checked ) {
-		        const [cat1Sec1Page2] = await pdfDoc.copyPages(sourcePdfDoc, [3]);
-		        pdfDoc.addPage(cat1Sec1Page2);	        
+		        let [page1] = await pdfDoc.copyPages(sourcePdfDoc, [3]);
+		        pdfDoc.addPage(page1);	        
 	        }        
 	        if( document.getElementById('cat1sec3').checked ) {
-		        const [cat1Sec1Page3] = await pdfDoc.copyPages(sourcePdfDoc, [4]);
-		        pdfDoc.addPage(cat1Sec1Page3);
+		        let [page1] = await pdfDoc.copyPages(sourcePdfDoc, [4]);
+		        pdfDoc.addPage(page1);
 	        }
+
 	        
+	        if( document.getElementById('cat2sec1').checked ) {
+		        let [page1] = await pdfDoc.copyPages(sourcePdfDoc, [5]);
+				pdfDoc.addPage(page1);
+	        }
+	        if( document.getElementById('cat2sec2').checked ) {
+		        let [page1] = await pdfDoc.copyPages(sourcePdfDoc, [6]);
+		        pdfDoc.addPage(page1);	        
+	        }
+	        if( document.getElementById('cat2sec3').checked ) {
+		        let [page1] = await pdfDoc.copyPages(sourcePdfDoc, [7]);
+		        pdfDoc.addPage(page1);	        
+	        }        
+	        if( document.getElementById('cat2sec4').checked ) {
+		        let [page1] = await pdfDoc.copyPages(sourcePdfDoc, [8]);
+		        let [page2] = await pdfDoc.copyPages(sourcePdfDoc, [9]);
+		        pdfDoc.addPage(page1);
+		        pdfDoc.addPage(page2);
+	        }
+	        if( document.getElementById('cat2sec5').checked ) {
+		        let [page1] = await pdfDoc.copyPages(sourcePdfDoc, [10]);
+		        pdfDoc.addPage(page1);
+	        }
+	        	        
 			const pdfBytes = await pdfDoc.save();
 			
 			download(pdfBytes, "merged-pdf.pdf", "application/pdf");
@@ -53,15 +69,36 @@ jQuery( document ).ready(function($) {
 	
 	};
 
+	// Select All Buttons
+/*
+	var doc = document.getElementById("test");
+	var notes = null;
+	for (var i = 0; i < doc.childNodes.length; i++) {
+	    if (doc.childNodes[i].className == "4") {
+	      notes = doc.childNodes[i];
+	      break;
+	    }        
+	}
+*/
 
+	
+	// Introduction
+	document.getElementById('cat1-all').onclick = function() {
+		console.log("loaded");
+	    const childCheckboxes = document.querySelectorAll('.introduction .options input[type="checkbox"]');
+	    for (var childCheckbox of childCheckboxes) {
+	        childCheckbox.checked = this.checked;
+	    }
+	}
 
         
    	
 	
 // 	Create and Download
-	$(document).on('click', '#create-download', function(e){
+	
+	document.getElementById('create-download').onclick = function(e) {
 		e.preventDefault();
 		merge();
-	});
+	}
 	
-});
+}, false);

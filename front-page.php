@@ -45,35 +45,73 @@ get_header(); ?>
 							    
 						    </section>		
 						    
-						    <section class="choice-block introduction cell small-12 medium-6 large-4">
+						    <section class="choice-block first-chapter-block cell small-12 medium-6 large-4">
 	
-								<div class="choice all-cats">
-									<input type="checkbox" id="cat1-all" name="Introduction" value="all-introduction">
-									<label for="cat1-all">Introduction</label>
+								<div class="choice all-sections">
+									<input type="checkbox" id="cat1-all" name="First Chapter" value="all-first-chapter">
+									<label for="cat1-all">First Chapter</label>
 								</div>
 								
 								<div class="options">
-									
+
 									<div class="choice">
-										<input type="checkbox" id="cat1sec1" name="Introduction: About Spirit AeroSystems" value="cat1sec1">
-										<label for="cat1sec1">About Spirit Aerosystems</label>
+										<input type="checkbox" id="cat1sec1" name="About Spirit AeroSystems" value="cat1sec1">
+										<label for="cat1sec2">About Spirit AeroSystems</label>
 									</div>
 									
 									<div class="choice">
 										<input type="checkbox" id="cat1sec2" name="Message from Our President and CEP" value="cat1sec2">
-										<label for="cat1sec2">Message from Our President and CEP</label>
+										<label for="cat1sec3">Message from Our President and CEP</label>
 									</div>	
 		
 									<div class="choice">
-										<input type="checkbox" id="cat1sec3" name="2020 Impact Highlights">
-										<label for="cat1sec2">2020 Impact Highlights</label>
+										<input type="checkbox" id="cat1sec3" name="2020 Impact Highlights" value="cat1sec3">
+										<label for="cat1sec4">2020 Impact Highlights</label>
+									</div>	
+									
+								</div>
+	
+						    </section>	
+
+						    <section class="choice-block second-chapter-block cell small-12 medium-6 large-4">
+	
+								<div class="choice all-sections">
+									<input type="checkbox" id="cat2-all" name="Second Chapter" value="all-second-chapter">
+									<label for="cat1-all">Second Chapter</label>
+								</div>
+								
+								<div class="options">
+
+									<div class="choice">
+										<input type="checkbox" id="cat2sec1" name="Decade of Action" value="cat2sec1">
+										<label for="cat2sec1">Decade of Action</label>
+									</div>
+									
+									<div class="choice">
+										<input type="checkbox" id="cat2sec2" name="Spirit's Values and Sustainability Strategy" value="cat2sec2">
+										<label for="cat2sec2">Spirit's Values and Sustainability Strategy</label>
+									</div>
+									
+									<div class="choice">
+										<input type="checkbox" id="cat2sec3" name="Aerospace Innovation Centre" value="cat2sec3">
+										<label for="cat2sec3">Aerospace Innovation Centre</label>
+									</div>	
+		
+									<div class="choice">
+										<input type="checkbox" id="cat2sec4" name="Materiality and United Nations Sustainable Development Goals" value="cat2sec4">
+										<label for="cat2sec4">Materiality and United Nations Sustainable Development Goals</label>
+									</div>	
+
+									<div class="choice">
+										<input type="checkbox" id="cat2sec5" name="Sustainability Targets" value="cat2sec5">
+										<label for="cat2sec5">Sustainability Targets</label>
 									</div>	
 									
 								</div>
 	
 						    </section>	
 						    
-						    <div class="cell text-center">
+						    <div class="form-buttons cell text-center">
 							    <div class="grid-x grid-padding-x align-center align-middle">
 									<div class="cell shrink"><button id="create-download" type="submit">Create &amp; Download</button></div>
 									<div class="cell shrink"><button id="reset-options" type="reset">Clear Form</button></div>
